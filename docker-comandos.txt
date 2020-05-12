@@ -89,6 +89,7 @@ docker build - wildfly . (name image)
 docker run --name wildfly -it -p 8080:8080 -p 9990:9990 wildfly (with name container)
 
 --Example Jenkins
-docker run --name jenkins -p 8080:8080 -p 50000:50000 -u 0 -d -v /Users/michael.garcia/Downloads/jenkins_home:/var/jenkins_home jenkins/jenkins
+docker run --name jenkins -p 8080:8080 -p 50000:50000 -u 0 -d -v /Users/michael.garcia/Documents/jenkins_home:/var/jenkins_home jenkins/jenkins
+
 
  
