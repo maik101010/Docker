@@ -82,6 +82,13 @@ docker build -t main .  #ejecutamos el main, y creamos archivo ejecutable
 docker build -t items-api 
 docker run -o 8081:8081 -p 9200:9200 items-api:latest  (con elasticsearch en 9200)
 
---Docker build a partir de Dockerfile
-docker build -t cls .
+--Docker build from Dockerfile
+docker build -t name .
+--Example wildfly
+docker build - wildfly . (name image)
+docker run --name wildfly -it -p 8080:8080 -p 9990:9990 wildfly (with name container)
+
+--Example Jenkins
+docker run --name jenkins -p 8080:8080 -p 50000:50000 -u 0 -d -v /Users/michael.garcia/Downloads/jenkins_home:/var/jenkins_home jenkins/jenkins
+
  

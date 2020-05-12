@@ -9,5 +9,5 @@ RUN /opt/jboss/wildfly/bin/add-user.sh admin Admin#123 --silent
 EXPOSE 9990
 
 CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
-#docker build - wildfly
-#docker
+#docker build - wildfly (name imagen)
+#docker run --name wildfly -it -p 8080:8080 -p 9990:9990 wildfly
