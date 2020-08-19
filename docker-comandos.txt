@@ -13,15 +13,27 @@ docker run repo/simple-webapp
 docker run -i kodekloud/simple-prompt-docker "i" parameter
 docker run -v /opt/datadir:/var/lib/mysql mysql (para persistir los datos)
 docker run -e ENVIRONMENT_VARIABLE images
+docker run --restar=always (siempre que se inicia docker, se inicia el contenedor)
+docker run con parametros con la memoria o la cpu para utilizar pocos recursos del pc.
+diocker container pause <id> (pausa el contenedor, pero sigue corriendo)
+diocker container unpause <id> (renueva la ejecución del contenedor)
+docker container prune (stop a todos los container)
 --eliminar contenedores e images
 docker stop <id>
 docker container rm <id>
-docker rm image
+docker rm -f image or name
 --Puertos en docker
 docker run -it --name mitest -p 8080:8080 nginx (corremos una imagen en un puerto 8080) -it para mostrar en consola
+--#####IMPORTANTE####--- volumenes
+Creamos el volumen y lo montamos en un lugar particular
+	1- docker volume create dbdata		
+	2- docker run -d --name db --mount src=dbdata,dst=/data/db mongo  
 
 
 
+
+
+---Import docker proyects 
 
 
 -----------------------------------
@@ -91,5 +103,12 @@ docker run --name wildfly -it -p 8080:8080 -p 9990:9990 wildfly (with name conta
 --Example Jenkins
 docker run --name jenkins -p 8080:8080 -p 50000:50000 -u 0 -d -v /Users/michael.garcia/Documents/jenkins_home:/var/jenkins_home jenkins/jenkins
 
+
+
+---------------crear imagen java------
+Tener el jar, descargar img javaopenjdk
+- docker container cp target/cache-spring-0.0.1-SNAPSHOT.jar zen_turing:/tmp (copiar jar dentro del temp de la img de openjdk)
+- docker container commit zen_turing maikgar10/repositorio-java:manual1 (hacer commit dentro de la img)
+- docker container commit --change='CMD ["java", "-jar", "/tmp/cache-spring-0.0.1-SNAPSHOT.jar"]' zen_turing maikgar10/repositorio-java:manual1 (lanzar img para que se corra cuando le demos run)
 
  
